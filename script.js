@@ -48,7 +48,7 @@ async function fetchMovies(query, page = 1) {
 
     try {
         for (let i = startPage; i < startPage + 3; i++) {
-            const url = `http://www.omdbapi.com/?apikey=${apiKey}&s=${query}&type=movie&page=${i}`;
+            const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${query}&type=movie&page=${i}`;
             const response = await fetch(url);
             const data = await response.json();
 
@@ -105,7 +105,7 @@ function updatePagination(query, page, totalResults) {
 
 // Fetch Movie Details
 async function fetchMovieDetails(id) {
-    const url = `http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`;
+    const url = `https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`;
 
     try {
         showLoading();
