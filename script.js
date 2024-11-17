@@ -47,7 +47,7 @@ async function fetchMovies(query, page = 1) {
     const startPage = (page - 1) * 3 + 1; 
 
     try {
-        for (let i = startPage; i < startPage + 4; i++) {
+        for (let i = startPage; i < startPage + 3; i++) {
             const url = `http://www.omdbapi.com/?apikey=${apiKey}&s=${query}&type=movie&page=${i}`;
             const response = await fetch(url);
             const data = await response.json();
@@ -94,7 +94,7 @@ function displayMovies(movies) {
 function updatePagination(query, page, totalResults) {
     currentQuery = query;
     currentPage = page;
-    const totalPages = Math.ceil(totalResults / 40); 
+    const totalPages = Math.ceil(totalResults / 30); 
 
     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
     prevPageBtn.disabled = currentPage === 1;
